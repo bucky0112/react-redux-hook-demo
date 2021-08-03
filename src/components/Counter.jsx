@@ -1,28 +1,34 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { counterActions } from '../store'
 
 const Counter = () => {
   const counter = useSelector((state) => state.counter)
   const dispatch = useDispatch()
 
   const handlePlusNum = () => {
-    dispatch({ type: 'plus' })
+    // dispatch({ type: 'plus' })
+    dispatch(counterActions.plus())
   }
 
   const handleMinusNum = () => {
-    dispatch({ type: 'minus' })
+    // dispatch({ type: 'minus' })
+    dispatch(counterActions.minus())
   }
 
   const handlePlus20Num = () => {
-    dispatch({ type: 'increase', amount: + 20 })
+    // dispatch({ type: 'increase', amount: + 20 })
+    dispatch(counterActions.increase(20))
   }
 
   const handleMinus20Num = () => {
-    dispatch({ type: 'increase', amount: - 20 })
+    // dispatch({ type: 'increase', amount: - 20 })
+    dispatch(counterActions.increase(-20))
   }
 
   const handleToggleCount = () => {
-    dispatch({ type: 'toggle' })
+    // dispatch({ type: 'toggle' })
+    dispatch(counterActions.toggleCounter())
   }
 
   return (
